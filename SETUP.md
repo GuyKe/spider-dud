@@ -40,20 +40,22 @@ not something you hand-write).
 
 ## 5. Build the demo scene
 
-- Menu **Spider Dud > Build Demo City Scene**.
-- This generates `Assets/Scenes/CityDemo.unity` with:
-  - A procedurally generated placeholder city (`CityGenerator`, grid of box
-    buildings + ground, all on a `Swingable` layer created automatically).
+- Menu **Spider Dud > Build Demo Scene**.
+- This generates `Assets/Scenes/SpawnRoomDemo.unity` with:
+  - A procedurally generated spawn room (`SpawnRoomGenerator`): bed, messy
+    desk with a book hutch, a corkboard wall, window blinds, a hanging
+    pendant lamp, and scattered floor clutter, all placeholder primitives.
   - A `GameManager`.
   - A `Player` object (CharacterController + `WebSwingController` +
-    `PlayerRespawn`) with placeholder Head/LeftHand/RightHand anchor
-    transforms and web `LineRenderer`s already wired up.
+    `PlayerRespawn`), spawned mid-room facing the doorway, with placeholder
+    Head/LeftHand/RightHand anchor transforms and web `LineRenderer`s
+    already wired up.
 
 ## 6. Wire in the real XR rig
 
 - **Window > Package Manager > XR Interaction Toolkit > Samples** → import
   **Starter Assets**. This gives you the **XR Origin (XR Rig)** prefab.
-- In `CityDemo`, drag that prefab into the scene as a child of `Player`.
+- In `SpawnRoomDemo`, drag that prefab into the scene as a child of `Player`.
 - On the `Player`'s `WebSwingController` component, reassign:
   - **Head Anchor** → the XR Origin's `Camera` transform.
   - **Left Hand Anchor** → the XR Origin's left controller transform.
@@ -67,17 +69,22 @@ not something you hand-write).
 
 ## 7. Play
 
-- Grip button on either controller, aiming the controller at a building,
-  fires a web line and starts a pendulum-style swing from that anchor.
-  Release to let go (keeps your momentum, with a small boost).
+- The player spawns standing in the middle of the bedroom, facing the
+  doorway. Grip button on either controller, aiming at solid geometry,
+  fires a web line and starts a pendulum-style swing from that anchor —
+  there isn't much to swing from indoors yet, so this is really meant as
+  the intro beat before the player heads out into a future outdoor level.
 - Playmode in the Editor without a headset won't show much useful motion —
   deploy to a Quest (**Build & Run** over USB with Developer Mode enabled)
   or test over Meta Quest Link for a PCVR-style pass.
 
-## Trademark note
+## Trademark/copyright note
 
 This scaffold implements a generic web-swinging *mechanic* and a
-procedurally generated placeholder city — no Marvel/Spider-Man characters,
-likenesses, logos, or licensed assets are included. Bring your own
-original (or properly licensed) character model, animations, and city art
+procedurally generated placeholder bedroom — no Marvel/Spider-Man
+characters, likenesses, or logos, and no copyrighted poster art, photos,
+or map art, are included. The room's composition (messy bed, cluttered
+desk, corkboard wall, window blinds, hanging lamp) is built from plain
+primitives and generic placeholder colors. Bring your own original (or
+properly licensed) character model, animations, and set-dressing textures
 before shipping this publicly.

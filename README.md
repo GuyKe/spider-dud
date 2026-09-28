@@ -1,7 +1,8 @@
 # spider-dud
 
 A native Unity VR game: web-swinging traversal through a city, built for
-Meta Quest (OpenXR).
+Meta Quest (OpenXR). The player spawns in a cluttered teenage bedroom
+before heading out.
 
 - **Engine:** Unity 2022.3 LTS
 - **XR stack:** OpenXR + XR Interaction Toolkit + XR Plug-in Management
@@ -13,13 +14,15 @@ Meta Quest (OpenXR).
   web swinging (raycast to fire, pendulum physics while held, momentum kept
   on release).
 - `Assets/Scripts/Player/PlayerRespawn.cs` — teleports the player back to
-  spawn if they fall out of the city.
-- `Assets/Scripts/World/CityGenerator.cs` — procedurally generates a
-  placeholder box-building city to swing through.
+  spawn if they fall out of the level.
+- `Assets/Scripts/World/SpawnRoomGenerator.cs` — procedurally builds the
+  player's starting room: bed, messy desk, corkboard wall, window blinds, a
+  hanging pendant lamp, and scattered clutter, all from primitives with
+  generic placeholder materials.
 - `Assets/Scripts/Core/GameManager.cs` — scene-lifetime singleton hook for
   future game state.
-- `Assets/Editor/SpiderDudSceneSetup.cs` — **Spider Dud > Build Demo City
-  Scene** menu command that assembles the demo scene via the Editor API.
+- `Assets/Editor/SpiderDudSceneSetup.cs` — **Spider Dud > Build Demo Scene**
+  menu command that assembles the demo scene via the Editor API.
 
 ## Setup
 
@@ -29,4 +32,5 @@ config, importing the XR Interaction Toolkit rig, building the demo scene).
 ## Note
 
 This is a generic web-swinging mechanic prototype with placeholder
-procedural art — no Marvel/Spider-Man IP is included.
+procedural art — no Marvel/Spider-Man IP, and no copyrighted poster/photo
+art, is included.
